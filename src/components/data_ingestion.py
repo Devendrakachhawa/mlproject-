@@ -9,6 +9,11 @@ from sklearn.model_selection import train_test_split
 from src.expection import CustomException
 from src.logger import logging
 
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
+
+from src.components.model_trainer import ModelTrainer
+
 
 @dataclass
 class DataIngestionConfig:
@@ -20,12 +25,13 @@ class DataIngestionConfig:
 class DataIngestion:
     def __init__(self):
         self.ingestion_config = DataIngestionConfig()
-        self.project_root = Path(__file__).resolve().parents[1]
+        self.project_root = Path(__file__).resolve().parents[2]
+        self.data_root = Path(__file__).resolve().parents[1] / "pipeline" / "notebook"
 
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method or component")
         try:
-            data_path = self.project_root / "pipeline" / "notebook" / "StudentsPerformance.csv"
+            data_path = self.data_root / "StudentsPerformance.csv"
             df = pd.read_csv(data_path)
             logging.info("Read the dataset as dataframe")
 
@@ -49,7 +55,13 @@ class DataIngestion:
             raise CustomException(e, sys)
 
 
-if __name__ == "__main__":
-    obj = DataIngestion()
-    obj.initiate_data_ingestion()
+if __name__=="__main__":
+    obj=DataIngestion()
+    train_data,test_data=obj.initiate_data_ingestion()
+
+    data_transformation=DataTransformation()
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
     

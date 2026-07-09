@@ -1,4 +1,4 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.1
 Name: mlproject
 Version: 0.1
 Author: Devendra
@@ -11,6 +11,4 @@ Requires-Dist: scikit-learn
 Requires-Dist: catboost
 Requires-Dist: xgboost
 Requires-Dist: Flask
-Dynamic: author
-Dynamic: author-email
-Dynamic: requires-dist
+Requires-Dist: dill
