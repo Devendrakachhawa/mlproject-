@@ -1,0 +1,12 @@
+[2026-07-11 01:07:52,973] 26 root - INFO - Entered the data ingestion method or component
+[2026-07-11 01:07:52,978] 35 root - INFO - Read the dataset from d:\mlproject\src\pipeline\notebook\StudentsPerformance.csv
+[2026-07-11 01:07:52,983] 41 root - INFO - Train test split initiated
+[2026-07-11 01:07:52,988] 48 root - INFO - Inmgestion of the data iss completed
+[2026-07-11 01:07:52,992] 82 root - INFO - Read train and test data completed
+[2026-07-11 01:07:52,993] 84 root - INFO - Obtaining preprocessing object
+[2026-07-11 01:07:52,993] 58 root - INFO - Categorical columns: ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+[2026-07-11 01:07:52,993] 59 root - INFO - Numerical columns: ['writing score', 'reading score']
+[2026-07-11 01:07:52,995] 97 root - INFO - Applying preprocessing object on training dataframe and testing dataframe.
+[2026-07-11 01:07:53,013] 109 root - INFO - Saved preprocessing object.
+[2026-07-11 01:07:53,016] 31 root - INFO - Split training and test input data
+[2026-07-11 01:09:09,647] 100 root - INFO - Best found model on both training and testing dataset
